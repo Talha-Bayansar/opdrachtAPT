@@ -19,6 +19,7 @@ public class Brand {
         return id;
     }
 
+    //Speculative Generality
     public void setId(int id) {
         this.id = id;
     }
@@ -27,6 +28,7 @@ public class Brand {
         return brandName;
     }
 
+    //Speculative Generality
     public void setBrandName(String name) {
         this.brandName = name;
     }
@@ -35,6 +37,7 @@ public class Brand {
         return brandLinkMoreInfo;
     }
 
+    //Speculative Generality
     public void setBrandLinkMoreInfo(String linkMoreInfo) {
         this.brandLinkMoreInfo = linkMoreInfo;
     }

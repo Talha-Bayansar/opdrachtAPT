@@ -81,6 +81,7 @@ public class AdminController {
                                 @RequestParam String phoneBrand,
                                 @RequestParam String phoneSeries,
                                 Model model) {
+        //Bloaters --> Long Method
         if(phoneName != null && phonePrice != null && phoneBrand != null && phoneSeries != null){
             Phone phone = new Phone();
             phone.setName(phoneName);

@@ -19,6 +19,7 @@ public class Series {
         return id;
     }
 
+    //Speculative Generality
     public void setId(int id) {
         this.id = id;
     }
@@ -27,6 +28,7 @@ public class Series {
         return seriesName;
     }
 
+    //Speculative Generality
     public void setSeriesName(String name) {
         this.seriesName = name;
     }
@@ -35,6 +37,7 @@ public class Series {
         return seriesLinkMoreInfo;
     }
 
+    //Speculative Generality
     public void setSeriesLinkMoreInfo(String linkMoreInfo) {
         this.seriesLinkMoreInfo = linkMoreInfo;
     }

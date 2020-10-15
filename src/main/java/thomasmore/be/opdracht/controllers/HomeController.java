@@ -29,6 +29,8 @@ public class HomeController {
 
     private String applicatieNaam = "Mobile Shop";
 
+
+
     @GetMapping({"/", "/phones", "/phones/{filter}"})
     public String phones(@PathVariable(required = false) String filter,
                          Model model,
@@ -37,6 +39,7 @@ public class HomeController {
                          @RequestParam(required = false) String phoneName){
         model.addAttribute("appName", applicatieNaam);
         model.addAttribute("filterButtons", new String[]{"All", "Affordable", "Expensive"});
+        //Bloaters --> Long Method
         if(minPrijs == null && maxPrijs == null && filter != null){
             if (filter.equals("Affordable")){
                 minPrijs = null;
