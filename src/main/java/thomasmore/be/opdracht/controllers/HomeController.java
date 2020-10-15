@@ -38,9 +38,8 @@ public class HomeController {
         model.addAttribute("appName", applicatieNaam);
         model.addAttribute("filterButtons", new String[]{"All", "Affordable", "Expensive"});
         //Bloaters --> Long Method
-        if(minPrijs == null && maxPrijs == null && filter != null){
+        if(noFilterGiven(filter, minPrijs, maxPrijs)){
             if (filter.equals("Affordable")){
-                minPrijs = null;
                 maxPrijs = 700;
             } else if (filter.equals("Expensive")){
                 minPrijs = 700;
@@ -52,6 +51,10 @@ public class HomeController {
         model.addAttribute("maxPrijs", maxPrijs);
         model.addAttribute("phoneName", phoneName);
         return "phones";
+    }
+
+    private boolean noFilterGiven(@PathVariable(required = false) String filter, @RequestParam(required = false) Integer minPrijs, @RequestParam(required = false) Integer maxPrijs) {
+        return minPrijs == null && maxPrijs == null && filter != null;
     }
 
     @GetMapping("phone/{id}")
