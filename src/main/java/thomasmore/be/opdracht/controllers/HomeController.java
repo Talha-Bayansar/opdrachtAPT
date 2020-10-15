@@ -29,8 +29,6 @@ public class HomeController {
 
     private String applicatieNaam = "Mobile Shop";
 
-
-
     @GetMapping({"/", "/phones", "/phones/{filter}"})
     public String phones(@PathVariable(required = false) String filter,
                          Model model,

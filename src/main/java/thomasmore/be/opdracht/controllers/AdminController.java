@@ -56,9 +56,11 @@ public class AdminController {
             phone.setPrijs(phonePrice);
             Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
             Optional<Series> series = seriesRepository.findSeriesBySeriesNameEquals(phoneSeries);
+            //Long Method
             if (brand.isPresent()) {
                 phone.setBrand(brand.get());
             }
+            //Long Method
             if (series.isPresent()) {
                 phone.setSeries(series.get());
             }
@@ -88,9 +90,11 @@ public class AdminController {
             phone.setPrijs(phonePrice);
             Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
             Optional<Series> series = seriesRepository.findSeriesBySeriesNameEquals(phoneSeries);
+            // Long Method
             if (brand.isPresent()) {
                 phone.setBrand(brand.get());
             }
+            //Long Method
             if (series.isPresent()) {
                 phone.setSeries(series.get());
             }
