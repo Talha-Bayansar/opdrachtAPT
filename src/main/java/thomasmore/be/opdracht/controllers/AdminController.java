@@ -52,22 +52,19 @@ public class AdminController {
         Optional<Phone> phoneFromDb = phoneRepository.findById(phoneId);
         if (phoneFromDb.isPresent()) {
             Phone phone = phoneFromDb.get();
-            //Duplicate Code
-            phone.setName(phoneName);
-            phone.setPrijs(phonePrice);
-            Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
-            Optional<Series> series = seriesRepository.findSeriesBySeriesNameEquals(phoneSeries);
-            //Long Method
-            if (brand.isPresent()) {
-                phone.setBrand(brand.get());
-            }
-            //Long Method
-            if (series.isPresent()) {
-                phone.setSeries(series.get());
-            }
-            phoneRepository.save(phone);
+            setPhone(phoneName, phonePrice, phoneBrand, phoneSeries, phone);
         }
         return "redirect:/phone/" + phoneId;
+    }
+
+    private void setPhone(@RequestParam String phoneName, @RequestParam int phonePrice, @RequestParam String phoneBrand, @RequestParam String phoneSeries, Phone phone) {
+        phone.setName(phoneName);
+        phone.setPrijs(phonePrice);
+        Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
+        Optional<Series> series = seriesRepository.findSeriesBySeriesNameEquals(phoneSeries);
+        brand.ifPresent(phone::setBrand);
+        series.ifPresent(phone::setSeries);
+        phoneRepository.save(phone);
     }
 
     @GetMapping("/phone/create")
@@ -84,24 +81,14 @@ public class AdminController {
                                 @RequestParam String phoneBrand,
                                 @RequestParam String phoneSeries,
                                 Model model) {
-        //Bloaters --> Long Method
-        if(phoneName != null && phonePrice != null && phoneBrand != null && phoneSeries != null){
+        if(isEveryInfoFilledIn(phoneName, phonePrice, phoneBrand, phoneSeries)){
             Phone phone = new Phone();
-            //Duplicate Code
-            phone.setName(phoneName);
-            phone.setPrijs(phonePrice);
-            Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
-            Optional<Series> series = seriesRepository.findSeriesBySeriesNameEquals(phoneSeries);
-            // Long Method
-            if (brand.isPresent()) {
-                phone.setBrand(brand.get());
-            }
-            //Long Method
-            if (series.isPresent()) {
-                phone.setSeries(series.get());
-            }
-            phoneRepository.save(phone);
+            setPhone(phoneName, phonePrice, phoneBrand, phoneSeries, phone);
         }
         return "redirect:/phones";
+    }
+
+    private boolean isEveryInfoFilledIn(@RequestParam String phoneName, @RequestParam Integer phonePrice, @RequestParam String phoneBrand, @RequestParam String phoneSeries) {
+        return phoneName != null && phonePrice != null && phoneBrand != null && phoneSeries != null;
     }
 }
