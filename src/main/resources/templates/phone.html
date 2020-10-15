@@ -1,0 +1,70 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app name</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1 th:text="${appName}">naam</h1>
+    </div>
+
+    <nav>
+        <a href="/">Phones</a>
+        <a href="/brands">Brands</a>
+        <a href="/series">Series</a>
+    </nav>
+</header>
+
+<h1 class="titel">Details: </h1>
+
+<div class="info">
+    <div class="infoLine">
+        <div class="infoLineName">
+            <h4>Name:</h4>
+        </div>
+        <div class="infoLineValue">
+            <p th:text="${phone.getName()}">name of device</p>
+        </div>
+    </div>
+    <div class="infoLine">
+        <div class="infoLineName">
+            <h4>Price:</h4>
+        </div>
+        <div class="infoLineValue">
+            <p th:text="'€ ' + ${phone.getPrijs()}">price of device</p>
+        </div>
+    </div>
+    <div class="infoLine">
+        <div class="infoLineName">
+            <h4>Brand:</h4>
+        </div>
+        <div class="infoLineValue">
+            <a th:text="${phone.getBrand().getBrandName()}" th:href="'/brand/' + ${phone.getBrand().getId()}">brand of device</a>
+        </div>
+    </div>
+    <div class="infoLine">
+        <div class="infoLineName">
+            <h4>Series:</h4>
+        </div>
+        <div class="infoLineValue">
+            <a th:text="${phone.getSeries().getSeriesName()}" th:href="'/serie/' + ${phone.getSeries().getId()}">series</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="edit-links">
+        <a class="edit-link" th:href="'/admin/phone/edit/' + ${phone.getId()}">Edit</a>
+    </div>
+</div>
+
+<div class="prev-next">
+    <a class="prev prev-next-link" th:href="'/phone/' + ${idPrevPhone}">Previous</a>
+    <a class="next prev-next-link" th:href="'/phone/' + ${idNextPhone}">Next</a>
+</div>
+
+</body>
+</html>

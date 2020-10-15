@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app name</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1 th:text="${appName}">naam</h1>
+    </div>
+
+    <nav>
+        <a href="/">Phones</a>
+        <a href="/brands">Brands</a>
+        <a href="/series">Series</a>
+    </nav>
+</header>
+
+<div class="filters">
+    <div class="filter-links">
+        <a th:each="filterButton:${filterButtons}" class="filter-link" th:text="${filterButton}"
+           th:href="'/phones/' + ${filterButton}"></a>
+    </div>
+    <form>
+        <div class="filter-row">
+            <input type="number" id="minPrijs" name="minPrijs" th:value="${minPrijs}" value="0" step="100">
+            <label for="minPrijs">Minimum Price</label>
+        </div>
+        <div class="filter-row">
+            <input type="number" id="maxPrijs" name="maxPrijs" th:value="${maxPrijs}" value="5000" step="100">
+            <label for="maxPrijs">Maximum Price</label>
+        </div>
+        <div class="filter-row">
+            <input type="search" id="phoneName" name="phoneName" th:value="${phoneName}">
+            <label for="phoneName">Search Phone</label>
+        </div>
+        <div class="filter-row">
+            <input type="submit" value="filter">
+        </div>
+    </form>
+</div>
+
+<h1 class="titel">Phones: </h1>
+
+<a class="new-link" th:href="'/admin/phone/create'">New</a>
+
+<div class="phones">
+    <ul>
+        <li th:each="phone:${phones}">
+            <a th:text="${phone.getName()}"
+               th:href="'/phone/' + ${phone.getId()}">phone name</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

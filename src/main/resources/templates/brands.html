@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${appName}">app name</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+    <div class="logo">
+        <h1 th:text="${appName}">naam</h1>
+    </div>
+
+    <nav>
+        <a href="/">Phones</a>
+        <a href="/brands">Brands</a>
+        <a href="/series">Series</a>
+    </nav>
+</header>
+
+<h1 class="titel">Brands: </h1>
+
+<div class="brands">
+    <ul>
+        <li th:each="brand:${brands}">
+            <a th:text="${brand.getBrandName()}"
+               th:href="'/brand/' + ${brand.getId()}">brand name</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

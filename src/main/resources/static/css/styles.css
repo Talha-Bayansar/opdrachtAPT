@@ -1,0 +1,223 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #cbcbcb;
+}
+
+header{
+    background-color: #0059ff;
+    height: 10vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    display: block;
+    color: #cbcbcb;
+    width: 20%;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 50px;
+}
+
+nav{
+    display: block;
+    width: 30%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+nav a{
+    color: #cccccc;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: 600;
+    font-size: 1em;
+}
+
+nav a:hover{
+    color: #ffffff;
+}
+
+.phones, .brands, .series{
+    margin-top: 50px;
+    width: 70%;
+}
+
+.phones a, .brands a, .series a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #dedede;
+    width: 200px;
+    height: 50px;
+    margin-top: 10px;
+    margin-left: 50px;
+    padding-top: 30px;
+    border-radius: 5px;
+    background-color: #3d4ebc;
+}
+
+.prev-next{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    margin-top: 300px;
+}
+
+.prev-next-link{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #dedede;
+    width: 200px;
+    height: 50px;
+    padding-top: 30px;
+    border-radius: 5px;
+    background-color: #3d4ebc;
+}
+
+.filters{
+    width: 100%;
+    height: 200px;
+    background-color: #4f91ff;
+    padding-left: 100px;
+}
+
+.filter-links{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+
+.filter-link{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #dedede;
+    margin-top: 20px;
+    width: 75px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3d4ebc;
+}
+
+.filter-row{
+    margin: 10px 0;
+}
+
+.filter-row label{
+    color: #3b3b3b;
+    font-weight: 600;
+}
+
+.prev{
+    margin-left: 20px;
+}
+
+.next{
+    margin-right: 20px;
+}
+
+.phones a:hover, .brands a:hover, .series a:hover, .prev-next-link:hover,
+.filter-link:hover, .save-link:hover, .cancel-link:hover, .edit-link:hover,
+.new-link:hover{
+    background-color: #4e60ff;
+}
+
+.info{
+    display: block;
+    width: 70%;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 1px solid rgba(18, 18, 18, 0.41);
+}
+
+.infoLine{
+    margin: 10px 0;
+    display: flex;
+}
+
+.infoLine a:visited{
+    color: blue;
+}
+
+.infoLineValue input, .infoLineValue select{
+    width: 200px;
+    border-width: 0;
+}
+
+.infoLine .infoLineName{
+    display: block;
+    width: 100px;
+}
+
+.infoLine .infoLineValue{
+    font-size: 0.9em;
+    color: #262626;
+}
+
+.titel{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.container{
+    display: block;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.save-cancel-links{
+    display: flex;
+    justify-content: space-between;
+    width: 220px;
+    float: right;
+}
+
+.edit-links{
+    display: block;
+    float: right;
+}
+
+.save-link{
+    cursor: pointer;
+    font-size: 1em;
+    border: none;
+}
+
+.save-link, .cancel-link, .edit-link{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #dedede;
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #3d4ebc;
+}
+
+.new-link{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #dedede;
+    float: right;
+    margin-top: 50px;
+    margin-right: 50px;
+    padding: 10px 0;
+    width: 100px;
+    border-radius: 5px;
+    background-color: #3d4ebc;
+}
