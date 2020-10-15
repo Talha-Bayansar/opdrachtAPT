@@ -32,11 +32,6 @@ public class Phone {
         return id;
     }
 
-    //Speculative Generality
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public Brand getBrand() {
         return brand;
     }

@@ -19,26 +19,11 @@ public class Brand {
         return id;
     }
 
-    //Speculative Generality
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getBrandName() {
         return brandName;
     }
 
-    //Speculative Generality
-    public void setBrandName(String name) {
-        this.brandName = name;
-    }
-
     public String getBrandLinkMoreInfo() {
         return brandLinkMoreInfo;
-    }
-
-    //Speculative Generality
-    public void setBrandLinkMoreInfo(String linkMoreInfo) {
-        this.brandLinkMoreInfo = linkMoreInfo;
     }
 }
