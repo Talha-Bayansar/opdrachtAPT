@@ -52,6 +52,7 @@ public class AdminController {
         Optional<Phone> phoneFromDb = phoneRepository.findById(phoneId);
         if (phoneFromDb.isPresent()) {
             Phone phone = phoneFromDb.get();
+            //Duplicate Code
             phone.setName(phoneName);
             phone.setPrijs(phonePrice);
             Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
@@ -86,6 +87,7 @@ public class AdminController {
         //Bloaters --> Long Method
         if(phoneName != null && phonePrice != null && phoneBrand != null && phoneSeries != null){
             Phone phone = new Phone();
+            //Duplicate Code
             phone.setName(phoneName);
             phone.setPrijs(phonePrice);
             Optional<Brand> brand = brandRepository.findBrandByBrandNameEquals(phoneBrand);
